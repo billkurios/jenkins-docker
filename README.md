@@ -1,6 +1,6 @@
 # Jenkins
 
-Jenkins is an open source automation server. It helps automate the CI/CD (Continouos Integration, Continouos Delivering, Continouos Deployment) pipeline of software development.
+[Jenkins](https://jenkins.io/) is an open source automation server. It helps automate the CI/CD (Continouos Integration, Continouos Delivering, Continouos Deployment) pipeline of software development.
 
 # How to use this project
 ### Clone the project
@@ -39,5 +39,9 @@ docker compose down
 ### License
 MIT
 
-### Reference
+### References
 [https://www.jenkins.io/doc/book/installing/docker/](https://www.jenkins.io/doc/book/installing/docker/)
+
+[https://docs.docker.com/compose/compose-file/](https://docs.docker.com/compose/compose-file/)
+
+[https://docs.docker.com/compose/compose-file/build/#args](https://docs.docker.com/compose/compose-file/build/#args)
