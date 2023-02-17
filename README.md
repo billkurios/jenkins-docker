@@ -12,8 +12,7 @@ git clone https://github.com/billkurios/jenkins-docker
 Create a `.envs` file and add environment variables. 
 This is a file example.
 ```txt
-VOLUME_ROOT_FOLDER='./.tmp_data'
-JK_DOCKER_VERSION='dind'
+VOLUME_ROOT_FOLDER='/Users/<user_name>/docker_volumes'
 JK_DOCKER_CONTAINER_NAME='jk-docker'
 JENKINS_VERSION='2.391-jdk11'
 DOCKER_TLS_CERTDIR='/certs'
@@ -21,6 +20,8 @@ DOCKER_HOST='tcp://${JK_DOCKER_CONTAINER_NAME}:2376'
 DOCKER_CERT_PATH='${DOCKER_TLS_CERTDIR}/client'
 DOCKER_TLS_VERIFY=1
 ```
+
+You can get availables jenkins images release [here.](https://hub.docker.com/r/jenkins/jenkins/tags)
 
 ### Docker compose
 To run your jenkins docker, just run:

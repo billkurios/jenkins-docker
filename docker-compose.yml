@@ -4,7 +4,7 @@ version: "3.9"
 services:
   jk-docker:
     restart: always
-    image: "docker:${JK_DOCKER_VERSION}"
+    image: "docker:dind"
     container_name: "${JK_DOCKER_CONTAINER_NAME}"
     env_file:
       - ./.envs
