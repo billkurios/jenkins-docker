@@ -1,0 +1,42 @@
+version: "3.9"
+
+
+services:
+  jk-docker:
+    restart: always
+    image: "docker:${JK_DOCKER_VERSION}"
+    container_name: "${JK_DOCKER_CONTAINER_NAME}"
+    env_file:
+      - ./.envs
+    networks:
+      - jk-network
+    volumes:
+      - ${VOLUME_ROOT_FOLDER}/jenkins/certs:${DOCKER_TLS_CERTDIR}/client
+      - ${VOLUME_ROOT_FOLDER}/jenkins/data:/var/jenkins_home
+    ports:
+      - "2376:2376"
+
+  jenkins:
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./jenkins/Dockerfile
+      args:
+        - JENKINS_VERSION=${JENKINS_VERSION}
+    env_file:
+      - ./.envs
+    image: "jenkins:${JENKINS_VERSION}"
+    container_name: "jenkins"
+    networks:
+      - jk-network
+    volumes:
+      - ${VOLUME_ROOT_FOLDER}/jenkins/certs:${DOCKER_TLS_CERTDIR}/client:ro
+      - ${VOLUME_ROOT_FOLDER}/jenkins/data:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    depends_on:
+      - jk-docker
+
+networks:
+  jk-network: {}
