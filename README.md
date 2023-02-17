@@ -32,7 +32,7 @@ docker compose --env-file .envs up -d
 
 To stop it:
 ```shell
-docker compose down
+docker compose --env-file .envs down
 ```
 
 # About
